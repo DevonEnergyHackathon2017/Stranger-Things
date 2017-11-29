@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using EventHubWebSocket.Handlers;
 using Microsoft.Azure.EventHubs;
 using Microsoft.Azure.EventHubs.Processor;
 using Microsoft.Extensions.Logging;
@@ -13,13 +14,14 @@ namespace Hckthn.Domain.EventHubProcessor
         readonly ILogger<EventHubProcessor> _processorlogger;
         EventProcessorHost _eventProcessorHost;
         readonly IEventHubProcessorConfig _config;
+        private DataEventHandler _dataEventHandler;
 
-
-        public EventHubProcessorService(IEventHubProcessorConfig config, ILogger<EventHubProcessorService> serviceLogger, ILogger<EventHubProcessor> processorLogger)
+        public EventHubProcessorService(IEventHubProcessorConfig config, ILogger<EventHubProcessorService> serviceLogger, ILogger<EventHubProcessor> processorLogger,
+                                        DataEventHandler dataEventHandler)
         {
             _servicelogger = serviceLogger;
             _processorlogger = processorLogger;
-
+            _dataEventHandler = dataEventHandler;
             _config = config;
         }
 
@@ -33,7 +35,7 @@ namespace Hckthn.Domain.EventHubProcessor
                 _config.StorageContainerName
             );
 
-            await _eventProcessorHost.RegisterEventProcessorFactoryAsync(new EventHubProcessorFactory(_processorlogger));
+            await _eventProcessorHost.RegisterEventProcessorFactoryAsync(new EventHubProcessorFactory(_processorlogger, _dataEventHandler));
         }
 
         public async Task StopProcessingAsync()

@@ -6,12 +6,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.EventHubs" Version="1.0.3" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="1.1.2" />
     <PackageReference Include="Microsoft.Azure.EventHubs.Processor" Version="1.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EventHubProcessor\" />
     <Folder Include="EventPublisher\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventHubWebSocket\EventHubWebSocket.csproj" />
   </ItemGroup>
 </Project>

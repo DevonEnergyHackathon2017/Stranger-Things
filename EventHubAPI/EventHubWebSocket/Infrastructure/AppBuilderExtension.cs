@@ -1,4 +1,6 @@
 ﻿using System.Reflection;
+using EventHubWebSocket.Infrastructure;
+using EventHubWebSocket.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,13 +17,7 @@ namespace EventHubWebSocket.Infrastructure
         public static IServiceCollection AddWebSocketManager(this IServiceCollection services)
         {
             services.AddTransient<WebsocketConnectionManager>();
-
-            foreach (var type in Assembly.GetEntryAssembly().ExportedTypes)
-            {
-                if (type.GetTypeInfo().BaseType == typeof(WebsocketHandler))
-                    services.AddSingleton(type);
-            }
-
+            services.AddSingleton<DataEventHandler>();
             return services;
         }
     }
