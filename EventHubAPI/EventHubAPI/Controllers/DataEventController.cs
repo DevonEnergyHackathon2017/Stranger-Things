@@ -17,6 +17,13 @@ namespace EventHubAPI.Controllers
             _dataEventHandler = dataEventHandler;
         }
 
+        [HttpGet]
+        public object Get() {
+            return new { 
+                Status = "Connnected"
+            };
+        }
+
         [HttpPost]
         public async Task Post([FromBody] DataEvent value)
         {

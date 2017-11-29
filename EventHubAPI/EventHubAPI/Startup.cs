@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using EventHubWebSocket.Infrastructure;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Hckthn.Domain.EventHubProcessor;
+using EventHubWebSocket.Handlers;
 
 namespace EventHubAPI
 {
@@ -32,6 +32,7 @@ namespace EventHubAPI
             services.AddLogging();
             services.AddMvc();
             services.AddWebSocketManager();
+            var serviceProvider = new AutofacServiceProvider(ConfigureAutoFac(services));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +56,25 @@ namespace EventHubAPI
             });
 
             app.MapWebSocketHandler("/dataevent", serviceProvider.GetService<EventHubWebSocket.Handlers.DataEventHandler>());
+        }
+
+        private IContainer ConfigureAutoFac(IServiceCollection services) {
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.Populate(services);
+
+            containerBuilder.RegisterType<EventHubProcessorService>().As<IEventHubProcessorService>();
+            containerBuilder.Register(c =>
+                                      new EventHubProcessorConfig(
+                                          Configuration["AzureEventHub:ConnectionString"],
+                                          Configuration["AzureEventHub:EntityPath"],
+                                          Configuration["AzureStorage:ContainerName"],
+                                          Configuration["AzureStorage:AccountName"],
+                                          Configuration["AzureStorage:AccountKey"]))
+                            .As<IEventHubProcessorConfig>();
+
+            var container = containerBuilder.Build();
+
+            return container;
         }
     }
 }

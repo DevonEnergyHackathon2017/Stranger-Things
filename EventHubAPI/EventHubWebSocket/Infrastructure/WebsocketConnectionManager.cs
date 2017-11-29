@@ -9,6 +9,10 @@ namespace EventHubWebSocket.Infrastructure
 {
     public class WebsocketConnectionManager
     {
+        public WebsocketConnectionManager() {
+            
+        }
+
         public ConcurrentDictionary<string, WebSocket> _sockets = new ConcurrentDictionary<string, WebSocket>();
 
         public WebSocket Get(string id)

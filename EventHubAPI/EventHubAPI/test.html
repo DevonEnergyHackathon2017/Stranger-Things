@@ -1,0 +1,21 @@
+﻿<html>
+<head>
+    <script type="text/javascript">
+var socket = new WebSocket("ws://localhost:5000/dataevent");
+
+socket.onmessage = function(data) {
+    console.log(data.data);
+    document.getElementById('testdiv').textContent += JSON.stringify(data.data);
+};
+
+socket.onopen = function(data) {
+
+};
+    </script>
+</head>
+<body>
+    <div id="connect"></div>
+    <br /><hr />
+    <div id="testdiv"></div>
+</body>
+</html>

@@ -1,13 +1,24 @@
 ﻿<Properties StartupConfiguration="{EA9EF9F3-CE27-40D0-962A-E4E441E53B8F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="EventHubWebSocket/Infrastructure/AppBuilderExtension.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Hckthn.Domain/EventHubProcessor/EventHubProcessor.cs">
     <Files>
-      <File FileName="EventHubWebSocket/Infrastructure/AppBuilderExtension.cs" Line="25" Column="1" />
+      <File FileName="Hckthn.Domain/EventPublisher/EventPublisherService.cs" Line="31" Column="54" />
+      <File FileName="Hckthn.Domain/EventHubProcessor/EventHubProcessorService.cs" Line="34" Column="128" />
+      <File FileName="Hckthn.Domain/EventHubProcessor/EventHubProcessor.cs" Line="64" Column="1" />
+      <File FileName="EventHubWebSocket/Handlers/DataEventHandler.cs" Line="24" Column="14" />
+      <File FileName="EventHubAPI/Startup.cs" Line="65" Column="1" />
+      <File FileName="EventHubWebSocket/Infrastructure/AppBuilderExtension.cs" Line="14" Column="63" />
+      <File FileName="EventHubAPI/Controllers/DataEventController.cs" Line="23" Column="36" />
+      <File FileName="EventHubWebSocket/Infrastructure/WebsocketHandler.cs" Line="56" Column="27" />
+      <File FileName="EventHubAPI/Program.cs" Line="34" Column="1" />
+      <File FileName="EventHubWebSocket/Infrastructure/WebsocketConnectionManager.cs" Line="25" Column="24" />
+      <File FileName="Hckthn.Domain/EventHubProcessor/EventHubProcessorFactory.cs" Line="26" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubAPI/Program.cs" relfile="EventHubAPI/Program.cs" line="33" column="38" />
+      <Breakpoint enabled="false" file="/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubAPI/Program.cs" relfile="EventHubAPI/Program.cs" line="33" column="38" />
+      <Breakpoint file="/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubAPI/Program.cs" relfile="EventHubAPI/Program.cs" line="34" column="27" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
