@@ -77,11 +77,10 @@ namespace EventHubWebSocket.Infrastructure
             }
         }
 
-        public async Task ReceiveAsync(WebSocket socket, WebSocketReceiveResult result, ArraySegment<byte> buffer)
+        public async Task ReceiveAsync(WebSocket socket, WebSocketReceiveResult result, byte[] buffer)
         {
             var id = _manager.GetSocketId(socket);
             var connections = _manager.Query().Where(m => m.Key != id);
-
 
             string message;
             var cancellationToken = new CancellationToken();
@@ -95,7 +94,7 @@ namespace EventHubWebSocket.Infrastructure
             }
             else
             {
-                byte[] payloadData = buffer.Array.Where(b => b != 0).ToArray();
+                byte[] payloadData = buffer.Where(b => b != 0).ToArray();
 
                 //Because we know that is a string, we convert it. 
                 message = Encoding.UTF8.GetString(payloadData, 0, payloadData.Length);
