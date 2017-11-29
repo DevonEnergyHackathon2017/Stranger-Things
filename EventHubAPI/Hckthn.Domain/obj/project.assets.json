@@ -148,16 +148,13 @@
           }
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/1.1.2": {
+      "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
         "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
         "compile": {
-          "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -1075,14 +1072,14 @@
         "microsoft.data.odata.nuspec"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/1.1.2": {
-      "sha512": "hbMEC7HYh2JJK0sSrMXFdOc0tjjRq8kDiSGzXh07AVbMnReLqWa6hA0QJx7umneMK7/9L3sKJnkB+RLGTagkOg==",
+    "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
+      "sha512": "6ZCllUYGFukkymSTx3Yr0G/ajRxoNJp7/FqSxSB4fGISST54ifBhgu4Nc0ItGi3i6DqwuNd8SUyObmiC++AO2Q==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/1.1.2",
+      "path": "microsoft.extensions.logging.abstractions/2.0.0",
       "files": [
-        "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.dll",
-        "lib/netstandard1.1/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.1.1.2.nupkg.sha512",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec"
       ]
     },
@@ -3536,7 +3533,7 @@
     ".NETStandard,Version=v2.0": [
       "Microsoft.Azure.EventHubs >= 1.0.3",
       "Microsoft.Azure.EventHubs.Processor >= 1.0.3",
-      "Microsoft.Extensions.Logging.Abstractions >= 1.1.2",
+      "Microsoft.Extensions.Logging.Abstractions >= 2.0.0",
       "NETStandard.Library >= 2.0.0",
       "Newtonsoft.Json >= 10.0.3"
     ]
@@ -3586,10 +3583,6 @@
             "target": "Package",
             "version": "1.0.3"
           },
-          "Microsoft.Extensions.Logging.Abstractions": {
-            "target": "Package",
-            "version": "1.1.2"
-          },
           "Microsoft.Azure.EventHubs.Processor": {
             "target": "Package",
             "version": "1.0.3"
@@ -3597,6 +3590,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "10.0.3"
+          },
+          "Microsoft.Extensions.Logging.Abstractions": {
+            "target": "Package",
+            "version": "2.0.0"
           }
         },
         "imports": [

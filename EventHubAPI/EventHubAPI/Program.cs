@@ -17,12 +17,22 @@ namespace EventHubAPI
             BuildWebHost(args).Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .Build();
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            try
+            {
+                return WebHost.CreateDefaultBuilder(args)
+                    .UseKestrel()
+                    .UseContentRoot(Directory.GetCurrentDirectory())
+                    .UseIISIntegration()
+                    .UseStartup<Startup>()
+                    .Build();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                return WebHost.CreateDefaultBuilder(args).Build();
+            }
+        }
     }
 }

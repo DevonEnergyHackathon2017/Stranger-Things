@@ -26,9 +26,11 @@ namespace EventHubWebSocket.Infrastructure
             return _sockets.FirstOrDefault(p => p.Value == socket).Key;
         }
 
-        public void Add(WebSocket socket)
+        public string Add(WebSocket socket)
         {
-            _sockets.TryAdd(Guid.NewGuid().ToString("N"), socket);
+            string id = Guid.NewGuid().ToString("N");
+            _sockets.TryAdd(id, socket);
+            return id;
         }
 
         public async Task Remove(string id)

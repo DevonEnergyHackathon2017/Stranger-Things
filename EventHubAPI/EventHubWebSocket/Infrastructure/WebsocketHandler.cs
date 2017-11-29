@@ -12,18 +12,16 @@ namespace EventHubWebSocket.Infrastructure
     public class WebsocketHandler
     {
         protected WebsocketConnectionManager _manager { get; set; }
-        protected ILogger _logger { get; set; }
 
-        public WebsocketHandler(WebsocketConnectionManager manager,
-                                ILogger logger)
+        public WebsocketHandler(WebsocketConnectionManager manager)
         {
             _manager = manager;
-            _logger = logger;
         }
 
         public virtual async Task OnConnected(WebSocket socket)
         {
-            _manager.Add(socket);
+            string id = _manager.Add(socket);
+            await SendMessageAsync(socket, new { Id = id, Msg = "Connected" });
         }
 
         public virtual async Task OnDisconnected(WebSocket socket)
@@ -31,23 +29,18 @@ namespace EventHubWebSocket.Infrastructure
             await _manager.Remove(_manager.GetSocketId(socket));
         }
 
-        public async Task SendMessageAsync(WebSocket socket, object message)
+        public virtual async Task SendMessageAsync(WebSocket socket, object message)
         {
-            try
-            {
-                if (socket.State != WebSocketState.Open)
-                    return;
+            if (socket.State != WebSocketState.Open)
+                return;
 
-                var data = JsonConvert.SerializeObject(message);
-                await socket.SendAsync(buffer: new ArraySegment<byte>(array: Encoding.ASCII.GetBytes(data),
-                        offset: 0,
-                        count: data.Length
-                    ), messageType: WebSocketMessageType.Text,
-                    endOfMessage: true,
-                    cancellationToken: CancellationToken.None);
-            } catch (Exception ex) {
-                _logger.LogCritical(ex, "Error sending message");
-            }
+            var data = JsonConvert.SerializeObject(message);
+            await socket.SendAsync(buffer: new ArraySegment<byte>(array: Encoding.ASCII.GetBytes(data),
+                    offset: 0,
+                    count: data.Length
+                ), messageType: WebSocketMessageType.Text,
+                endOfMessage: true,
+                cancellationToken: CancellationToken.None);
         }
 
         public async Task SendMessageAsync(string socketId, object message)

@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
+    <Folder Include="Handlers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NugetyCore.AspNetCore" Version="1.0.1" />
