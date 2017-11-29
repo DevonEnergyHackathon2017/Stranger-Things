@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{EA9EF9F3-CE27-40D0-962A-E4E441E53B8F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EventHubWebSocket/Class1.cs">
+    <Files>
+      <File FileName="Hckthn.Domain/EventHubProcessor/IEventHubProcessorService.cs" Line="1" Column="1" />
+      <File FileName="Hckthn.Domain/EventHubProcessor/EventHubProcessor.cs" Line="37" Column="87" />
+      <File FileName="EventHubAPI/appsettings.json" Line="6" Column="24" />
+      <File FileName="EventHubAPI/Program.cs" Line="29" Column="1" />
+      <File FileName="Hckthn.Domain/EventHubProcessor/EventHubProcessorService.cs" Line="1" Column="1" />
+      <File FileName="EventHubProcessor/Class1.cs" Line="1" Column="1" />
+      <File FileName="EventHubWebSocket/Class1.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.EventHubAPI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>
