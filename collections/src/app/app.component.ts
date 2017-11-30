@@ -1,12 +1,13 @@
 import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { StreamSocket } from './ngWebSocket/stream-socket.service';
-import { PressureGaugeComponent } from './pressure-gauge/pressure-gauge.component';
 import { Dashboard } from './models/dashboard.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 import { observeOn } from 'rxjs/operator/observeOn';
 import { Subscribable } from 'rxjs/Observable';
+import { SpiderChartComponent } from './spider-chart/spider-chart.component';
+import { GaugeComponent } from './gauge/gauge.component';
 import { RateGaugeComponent } from './rate-gauge/rate-gauge.component';
 
 @Component({
@@ -15,11 +16,14 @@ import { RateGaugeComponent } from './rate-gauge/rate-gauge.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  @ViewChild(PressureGaugeComponent)
-  pressureGuage: PressureGaugeComponent;
+  @ViewChild(GaugeComponent)
+  pressureGuage: GaugeComponent;
 
   @ViewChild(RateGaugeComponent)
   rateGuage: RateGaugeComponent;
+
+  @ViewChild(SpiderChartComponent)
+  spiderChart: SpiderChartComponent;
 
   subscription: Subscription;
   dashboard: Observable<Dashboard>;
@@ -27,209 +31,33 @@ export class AppComponent implements OnInit, OnDestroy {
   options: Object;
   score: String;
   chart: any;
-  bar1: Object;
-  bar2: Object;
+  data: Dashboard;
 
   constructor(private streamService: StreamSocket, private _client: HttpClient) {
-    // this.dashboard = new Dashboard();
-    // this.bar1 = {
-    //   chart: {
-    //     type: 'column'
-    // },
-    // title: {
-    //     text: 'World\'s largest cities per 2014'
-    // },
-    // subtitle: {
-    //     text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
-    // },
-    // xAxis: {
-    //     type: 'category',
-    //     labels: {
-    //         rotation: -45,
-    //         style: {
-    //             fontSize: '13px',
-    //             fontFamily: 'Verdana, sans-serif'
-    //         }
-    //     }
-    // },
-    // yAxis: {
-    //     min: 0,
-    //     title: {
-    //         text: 'Population (millions)'
-    //     }
-    // },
-    // legend: {
-    //     enabled: false
-    // },
-    // tooltip: {
-    //     pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
-    // },
-    // series: [{
-    //     name: 'Population',
-    //     data: [
-    //         ['Shanghai', 23.7]
-    //       ]}]
-    // };
-    // this.bar2 = {
-    //   chart: {
-    //     type: 'column'
-    // },
-    // title: {
-    //   text: ''
-    // },
-    // xAxis: {
-    //     type: 'category',
-    //     lineWidth: 0,
-    //     minorGridLineWidth: 0,
-    //     lineColor: 'transparent',
-    //     labels: {
-    //         enabled: false
-    //     },
-    //     minorTickLength: 0,
-    //     tickLength: 0
-    // },
-    // yAxis: {
-    //     min: 0,
-    //     title: {
-    //         text: 'Population (millions)'
-    //     },
-    //     lineWidth: 0,
-    //     minorGridLineWidth: 0,
-    //     lineColor: 'transparent',
-    //     labels: {
-    //         enabled: false
-    //     },
-    //     minorTickLength: 0,
-    //     tickLength: 0,
-    //     gridLineColor: 'transparent'
-    // },
-    // legend: {
-    //     enabled: false
-    // },
-    // tooltip: {
-    //     pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
-    // },
-    // series: [{
-    //     name: 'Population',
-    //     data: [
-    //         ['Shanghai', 69.7]
-    //       ]}]
-    // };
-    // this.options = {
-    //   chart: {
-    //     polar: true,
-    //     type: 'line'
-    //   },
-    //   title: {
-    //     text: 'Budget vs spending',
-    //     x: -80
-    //   },
-    //   pane: {
-    //     size: '80%'
-    //   },
-    //   yAxis: {
-    //     gridLineInterpolation: 'polygon',
-    //     lineWidth: 0,
-    //     min: 0
-    //   },
-    //   tooltip: {
-    //     shared: true,
-    //     pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
-    //   },
-    //   legend: {
-    //     align: 'right',
-    //     verticalAlign: 'top',
-    //     y: 70,
-    //     layout: 'vertical'
-    //   },
-    //   xAxis: {
-    //     categories: ['Treating Pressure', 'Slurry Rate', 'Surface Sand', 'FR'],
-    //     tickmarkPlacement: 'on',
-    //     lineWidth: 0,
-    //     min: 0
-    //   },
-    //   series: [{
-    //     name: 'Current',
-    //     data: [this.randomIntFromInterval(4000, 6000),
-    //     this.randomIntFromInterval(1000, 3200),
-    //     this.randomIntFromInterval(3000, 10000),
-    //     this.randomIntFromInterval(2000, 6000),
-    //     ],
-    //     pointPlacement: 'on'
-    //   }, {
-    //     name: 'Plan',
-    //     data: [6000, 2400, 5000, 4500],
-    //     pointPlacement: 'on'
-    //   }]
-    // };
-    this.addData();
-
-    this.streamService.messages.subscribe(data => {
-      this.addData();
-      // this.options = {
-      //   chart: {
-      //     polar: true,
-      //     type: 'line'
-      //   },
-      //   title: {
-      //     text: 'Budget vs spending',
-      //     x: -80
-      //   },
-      //   pane: {
-      //     size: '80%'
-      //   },
-      //   yAxis: {
-      //     gridLineInterpolation: 'polygon',
-      //     lineWidth: 0,
-      //     min: 0
-      //   },
-      //   tooltip: {
-      //     shared: true,
-      //     pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
-      //   },
-      //   legend: {
-      //     align: 'right',
-      //     verticalAlign: 'top',
-      //     y: 70,
-      //     layout: 'vertical'
-      //   },
-      //   xAxis: {
-      //     categories: ['Treating Pressure', 'Slurry Rate', 'Surface Sand', 'FR'],
-      //     tickmarkPlacement: 'on',
-      //     lineWidth: 0,
-      //     min: 0
-      //   },
-      //   series: [{
-      //     name: 'Current',
-      //     animation: false,
-      //     data: [this.randomIntFromInterval(4000, 6000),
-      //     this.randomIntFromInterval(1000, 3200),
-      //     this.randomIntFromInterval(3000, 10000),
-      //     this.randomIntFromInterval(2000, 6000),
-      //     ],
-      //     pointPlacement: 'on'
-      //   }, {
-      //     name: 'Plan',
-      //     animation: false,
-      //     data: [6000, 2400, 5000, 4500],
-      //     pointPlacement: 'on'
-      //   }]
-      // };
-    });
   }
 
   ngOnInit() {
     const observer = this._client.get<Dashboard>('../assets/test.json');
     this.dashboard = observer;
     this.subscription = observer.subscribe( (data: Dashboard) => {
-      console.log(data);
-      this.rateGuage.redraw(data.Bracket.Rate);
-      this.pressureGuage.redraw(data.Bracket.Pressure);
+      this.handleNewData(data);
+    });
+    this.streamService.messages.subscribe(data => {
+      if (this.data) {
+        this.handleNewData(this.data);
+      }
     });
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  handleNewData(data) {
+    this.data = data;
+    this.rateGuage.redraw(data.Bracket.Rate);
+    this.pressureGuage.redraw(data.Bracket.Pressure);
+    this.spiderChart.redraw(data.Instant);
   }
 
   randomIntFromInterval(min, max) {
@@ -241,97 +69,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   addData() {
-    const series = [{
-      yAxis: 0,
-      data: [
-        this.randomIntFromInterval(0, 10),
-        this.randomIntFromInterval(5, 10),
-        this.randomIntFromInterval(15, 30)
-      ]
-    }, {
-      yAxis: 1,
-      data: [
-        this.randomIntFromInterval(0, 10000),
-        this.randomIntFromInterval(5000, 10000),
-        this.randomIntFromInterval(150, 3000)
-      ]
-    }, {
-      yAxis: 2,
-      data: [
-        this.randomIntFromInterval(0, 10000),
-        this.randomIntFromInterval(5000, 10000),
-        this.randomIntFromInterval(150, 3000)
-      ]
-    }, {
-      yAxis: 3,
-      data: [
-        this.randomIntFromInterval(0, 10000),
-        this.randomIntFromInterval(5000, 10000),
-        this.randomIntFromInterval(150, 3000)
-      ]
-    }, {
-      yAxis: 4,
-      data: [
-        this.randomIntFromInterval(0, 10000),
-        this.randomIntFromInterval(5000, 10000),
-        this.randomIntFromInterval(150, 3000)
-      ]
-    }],
-      yAxis = [],
-      panes = [],
-      colors = ['red', 'blue', 'aqua', 'purple', 'orange', 'aquamarine'];
-    let startAngle = 0;
+    const colors = ['red', 'blue', 'aqua', 'purple', 'orange', 'aquamarine'];
     this.score = colors[this.randomIntFromInterval(0, 5)];
-
-    series.forEach((s, i) => {
-      s['animation'] = false;
-      yAxis.push({
-        pane: i,
-        showLastLabel: true,
-        gridLineWidth: i === 0 ? true : false,
-        labels: {
-          useHTML: true,
-          formatter: function () {
-            return '<span style="color:' + colors[i] + '">' + this.value + '</span>';
-          }
-        }
-      });
-      panes.push({
-        startAngle: startAngle
-      });
-      startAngle += 72;
-    });
-
-    this.options = {
-      chart: {
-        polar: true,
-        type: 'area'
-      },
-
-      title: {
-        text: 'Crappy Data Points'
-      },
-
-      subtitle: {
-        text: 'Source: PI'
-      },
-
-      pane: panes,
-
-      legend: {
-        align: 'right',
-        verticalAlign: 'top',
-        y: 100,
-        layout: 'vertical'
-      },
-
-      xAxis: {
-        tickmarkPlacement: 'on'
-      },
-
-      yAxis: yAxis,
-
-      series: series
-    };
+    this.spiderChart.redraw(this.data.Instant);
+    this.rateGuage.redraw(this.data.Bracket.Rate);
+    this.pressureGuage.redraw(this.data.Bracket.Pressure);
   }
 }

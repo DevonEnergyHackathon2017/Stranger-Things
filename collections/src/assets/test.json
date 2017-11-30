@@ -4,20 +4,20 @@
         "Name": "Well 2"
     },
     "TotalScore": 100,
-    "instant": {
+    "Instant": {
         "0": {
             "TP": 1000,
-            "SR": 1000,
-            "Sand": 1000,
-            "FR": 1000,
+            "SR": 2500,
+            "Sand": 2500,
+            "FR": 5000,
             "Gel": null,
             "Cross": null,
             "Cost": 10
         },
         "1": {
-            "TP": 1000,
-            "SR": 1000,
-            "Sand": 1000,
+            "TP": 2000,
+            "SR": 3000,
+            "Sand": 500,
             "FR": 1000,
             "Gel": null,
             "Cross": null,
@@ -25,27 +25,27 @@
         },
         "2": {
             "TP": 1000,
-            "SR": 1000,
-            "Sand": 1000,
-            "FR": 1000,
+            "SR": 4000,
+            "Sand": 3000,
+            "FR": 1500,
             "Gel": null,
             "Cross": null,
             "Cost": 12
         },
         "3": {
-            "TP": 1000,
-            "SR": 1000,
-            "Sand": 1000,
+            "TP": 4000,
+            "SR": 3000,
+            "Sand": 2000,
             "FR": 1000,
             "Gel": null,
             "Cross": null,
             "Cost": 10
         },
         "4": {
-            "TP": 1000,
-            "SR": 1000,
-            "Sand": 1000,
-            "FR": 1000,
+            "TP": 1500,
+            "SR": 2500,
+            "Sand": 5500,
+            "FR": 3000,
             "Gel": null,
             "Cross": null,
             "Cost": 6

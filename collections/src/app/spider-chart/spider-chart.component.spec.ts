@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PressureGaugeComponent } from './pressure-gauge.component';
+import { SpiderChartComponent } from './spider-chart.component';
 
-describe('PressureGaugeComponent', () => {
-  let component: PressureGaugeComponent;
-  let fixture: ComponentFixture<PressureGaugeComponent>;
+describe('SpiderChartComponent', () => {
+  let component: SpiderChartComponent;
+  let fixture: ComponentFixture<SpiderChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PressureGaugeComponent ]
+      declarations: [ SpiderChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PressureGaugeComponent);
+    fixture = TestBed.createComponent(SpiderChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BracketSet } from '../models/bracket.model';
 
 @Component({
-  selector: 'app-rate-gauge',
-  templateUrl: './rate-gauge.component.html',
-  styleUrls: ['./rate-gauge.component.scss']
+  selector: 'app-gauge',
+  templateUrl: './gauge.component.html',
+  styleUrls: ['./gauge.component.scss']
 })
-export class RateGaugeComponent implements OnInit {
+export class GaugeComponent implements OnInit {
   data: BracketSet;
   options: Object;
   chart: any;
@@ -55,7 +55,7 @@ export class RateGaugeComponent implements OnInit {
         }
       }],
       title: {
-        text: 'Rate'
+        text: 'Pressure'
       },
       pane: {
         size: '100%',
