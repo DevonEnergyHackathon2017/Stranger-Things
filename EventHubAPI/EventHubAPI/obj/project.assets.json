@@ -1444,45 +1444,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.Azure.Amqp/2.1.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.Amqp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.Amqp.dll": {}
-        }
-      },
-      "Microsoft.Azure.EventHubs/1.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.Amqp": "2.1.1",
-          "NETStandard.Library": "1.6.1",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll": {}
-        }
-      },
-      "Microsoft.Azure.EventHubs.Processor/1.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.EventHubs": "1.0.3",
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "10.0.2",
-          "WindowsAzure.Storage": "8.1.1"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll": {}
-        }
-      },
       "Microsoft.Azure.KeyVault/2.3.2": {
         "type": "package",
         "dependencies": {
@@ -2751,14 +2712,34 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/10.0.3": {
+      "Newtonsoft.Json/10.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
-          "NETStandard.Library": "1.6.1",
+          "System.Collections": "4.3.0",
           "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Numerics": "4.3.0",
           "System.Runtime.Serialization.Formatters": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "System.Xml.ReaderWriter": "4.3.0",
+          "System.Xml.XDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
         },
         "compile": {
@@ -4836,36 +4817,6 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "EventHub.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Microsoft.Azure.EventHubs": "1.0.3",
-          "Microsoft.Azure.EventHubs.Processor": "1.0.3",
-          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
-          "Newtonsoft.Json": "10.0.3"
-        },
-        "compile": {
-          "bin/placeholder/EventHub.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventHub.Domain.dll": {}
-        }
-      },
-      "EventHubProcessor/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "EventHub.Domain": "1.0.0",
-          "EventHubWebSocket": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/EventHubProcessor.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventHubProcessor.dll": {}
-        }
-      },
       "EventHubWebSocket/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -6290,45 +6241,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.Azure.Amqp/2.1.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.Amqp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.Amqp.dll": {}
-        }
-      },
-      "Microsoft.Azure.EventHubs/1.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.Amqp": "2.1.1",
-          "NETStandard.Library": "1.6.1",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll": {}
-        }
-      },
-      "Microsoft.Azure.EventHubs.Processor/1.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.EventHubs": "1.0.3",
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "10.0.2",
-          "WindowsAzure.Storage": "8.1.1"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll": {}
-        }
-      },
       "Microsoft.Azure.KeyVault/2.3.2": {
         "type": "package",
         "dependencies": {
@@ -7588,14 +7500,34 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/10.0.3": {
+      "Newtonsoft.Json/10.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
-          "NETStandard.Library": "1.6.1",
+          "System.Collections": "4.3.0",
           "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Numerics": "4.3.0",
           "System.Runtime.Serialization.Formatters": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "System.Xml.ReaderWriter": "4.3.0",
+          "System.Xml.XDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
         },
         "compile": {
@@ -9767,36 +9699,6 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "EventHub.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Microsoft.Azure.EventHubs": "1.0.3",
-          "Microsoft.Azure.EventHubs.Processor": "1.0.3",
-          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
-          "Newtonsoft.Json": "10.0.3"
-        },
-        "compile": {
-          "bin/placeholder/EventHub.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventHub.Domain.dll": {}
-        }
-      },
-      "EventHubProcessor/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "EventHub.Domain": "1.0.0",
-          "EventHubWebSocket": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/EventHubProcessor.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventHubProcessor.dll": {}
-        }
-      },
       "EventHubWebSocket/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -11224,45 +11126,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.Azure.Amqp/2.1.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.Amqp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.Amqp.dll": {}
-        }
-      },
-      "Microsoft.Azure.EventHubs/1.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.Amqp": "2.1.1",
-          "NETStandard.Library": "1.6.1",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll": {}
-        }
-      },
-      "Microsoft.Azure.EventHubs.Processor/1.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.EventHubs": "1.0.3",
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "10.0.2",
-          "WindowsAzure.Storage": "8.1.1"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll": {}
-        }
-      },
       "Microsoft.Azure.KeyVault/2.3.2": {
         "type": "package",
         "dependencies": {
@@ -12528,14 +12391,34 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/10.0.3": {
+      "Newtonsoft.Json/10.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
-          "NETStandard.Library": "1.6.1",
+          "System.Collections": "4.3.0",
           "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Numerics": "4.3.0",
           "System.Runtime.Serialization.Formatters": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "System.Xml.ReaderWriter": "4.3.0",
+          "System.Xml.XDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
         },
         "compile": {
@@ -14952,36 +14835,6 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "EventHub.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Microsoft.Azure.EventHubs": "1.0.3",
-          "Microsoft.Azure.EventHubs.Processor": "1.0.3",
-          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
-          "Newtonsoft.Json": "10.0.3"
-        },
-        "compile": {
-          "bin/placeholder/EventHub.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventHub.Domain.dll": {}
-        }
-      },
-      "EventHubProcessor/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "EventHub.Domain": "1.0.0",
-          "EventHubWebSocket": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/EventHubProcessor.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventHubProcessor.dll": {}
-        }
-      },
       "EventHubWebSocket/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -16409,45 +16262,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.Azure.Amqp/2.1.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.Amqp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.Amqp.dll": {}
-        }
-      },
-      "Microsoft.Azure.EventHubs/1.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.Amqp": "2.1.1",
-          "NETStandard.Library": "1.6.1",
-          "System.Reflection.TypeExtensions": "4.3.0",
-          "System.Runtime.Serialization.Primitives": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll": {}
-        }
-      },
-      "Microsoft.Azure.EventHubs.Processor/1.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.EventHubs": "1.0.3",
-          "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "10.0.2",
-          "WindowsAzure.Storage": "8.1.1"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll": {}
-        }
-      },
       "Microsoft.Azure.KeyVault/2.3.2": {
         "type": "package",
         "dependencies": {
@@ -17713,14 +17527,34 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/10.0.3": {
+      "Newtonsoft.Json/10.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.3.0",
-          "NETStandard.Library": "1.6.1",
+          "System.Collections": "4.3.0",
           "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.ObjectModel": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Runtime.Numerics": "4.3.0",
           "System.Runtime.Serialization.Formatters": "4.3.0",
           "System.Runtime.Serialization.Primitives": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encoding.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Threading.Tasks": "4.3.0",
+          "System.Xml.ReaderWriter": "4.3.0",
+          "System.Xml.XDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
         },
         "compile": {
@@ -20137,36 +19971,6 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
-      "EventHub.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Microsoft.Azure.EventHubs": "1.0.3",
-          "Microsoft.Azure.EventHubs.Processor": "1.0.3",
-          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
-          "Newtonsoft.Json": "10.0.3"
-        },
-        "compile": {
-          "bin/placeholder/EventHub.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventHub.Domain.dll": {}
-        }
-      },
-      "EventHubProcessor/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "EventHub.Domain": "1.0.0",
-          "EventHubWebSocket": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/EventHubProcessor.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventHubProcessor.dll": {}
-        }
-      },
       "EventHubWebSocket/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -21208,53 +21012,6 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.xml",
         "microsoft.aspnetcore.webutilities.2.0.1.nupkg.sha512",
         "microsoft.aspnetcore.webutilities.nuspec"
-      ]
-    },
-    "Microsoft.Azure.Amqp/2.1.1": {
-      "sha512": "JlXTCjMzKP39jIuIP9S/WfSx+hg61vUXQ6bcERk8Y5vDBdOeBxp9MKVp8n+mh+c2w5uSIesvJzZPacdwDy7IBw==",
-      "type": "package",
-      "path": "microsoft.azure.amqp/2.1.1",
-      "files": [
-        "lib/monoandroid/Microsoft.Azure.Amqp.dll",
-        "lib/net45/Microsoft.Azure.Amqp.dll",
-        "lib/net45/Microsoft.Azure.Amqp.xml",
-        "lib/netstandard1.3/Microsoft.Azure.Amqp.dll",
-        "lib/netstandard1.3/Microsoft.Azure.Amqp.xml",
-        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10/Microsoft.Azure.Amqp.dll",
-        "lib/uap10.0/Microsoft.Azure.Amqp.dll",
-        "lib/uap10.0/Microsoft.Azure.Amqp.pri",
-        "microsoft.azure.amqp.2.1.1.nupkg.sha512",
-        "microsoft.azure.amqp.nuspec"
-      ]
-    },
-    "Microsoft.Azure.EventHubs/1.0.3": {
-      "sha512": "jsQtg30cCpiO1vhM62O5hVq80ueCKCF6PTgJ0KetOzhVWEjM4oeksRM7yTp46A55gHA0s2mcZH+efwx4kQPYrA==",
-      "type": "package",
-      "path": "microsoft.azure.eventhubs/1.0.3",
-      "files": [
-        "lib/net451/Microsoft.Azure.EventHubs.dll",
-        "lib/net451/Microsoft.Azure.EventHubs.xml",
-        "lib/netstandard1.3/Microsoft.Azure.EventHubs.dll",
-        "lib/netstandard1.3/Microsoft.Azure.EventHubs.xml",
-        "lib/uap10.0/Microsoft.Azure.EventHubs.dll",
-        "lib/uap10.0/Microsoft.Azure.EventHubs.xml",
-        "microsoft.azure.eventhubs.1.0.3.nupkg.sha512",
-        "microsoft.azure.eventhubs.nuspec"
-      ]
-    },
-    "Microsoft.Azure.EventHubs.Processor/1.0.3": {
-      "sha512": "U89r4bHIkOE8/n20C3skd/4nXTs+H0l8LWkG6nQx0irNm1gJQnzrrgjuYC0RKdRymAc/q+azP7wcI/6PwoF8Hg==",
-      "type": "package",
-      "path": "microsoft.azure.eventhubs.processor/1.0.3",
-      "files": [
-        "lib/net451/Microsoft.Azure.EventHubs.Processor.dll",
-        "lib/net451/Microsoft.Azure.EventHubs.Processor.xml",
-        "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.dll",
-        "lib/netstandard1.3/Microsoft.Azure.EventHubs.Processor.xml",
-        "lib/uap10.0/Microsoft.Azure.EventHubs.Processor.dll",
-        "lib/uap10.0/Microsoft.Azure.EventHubs.Processor.xml",
-        "microsoft.azure.eventhubs.processor.1.0.3.nupkg.sha512",
-        "microsoft.azure.eventhubs.processor.nuspec"
       ]
     },
     "Microsoft.Azure.KeyVault/2.3.2": {
@@ -23026,12 +22783,11 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/10.0.3": {
-      "sha512": "hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
+    "Newtonsoft.Json/10.0.1": {
+      "sha512": "ebWzW9j2nwxQeBo59As2TYn7nYr9BHicqqCwHOD1Vdo+50HBtLPuqdiCYJcLdTRknpYis/DSEOQz5KmZxwrIAg==",
       "type": "package",
-      "path": "newtonsoft.json/10.0.3",
+      "path": "newtonsoft.json/10.0.1",
       "files": [
-        "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -23044,11 +22800,9 @@
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.10.0.3.nupkg.sha512",
+        "lib/portable-net45+win8+wpa81+wp8/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Newtonsoft.Json.xml",
+        "newtonsoft.json.10.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
       ]
@@ -29168,16 +28922,6 @@
         "windowsazure.storage.nuspec"
       ]
     },
-    "EventHub.Domain/1.0.0": {
-      "type": "project",
-      "path": "../Hckthn.Domain/EventHub.Domain.csproj",
-      "msbuildProject": "../Hckthn.Domain/EventHub.Domain.csproj"
-    },
-    "EventHubProcessor/1.0.0": {
-      "type": "project",
-      "path": "../EventHubProcessor/EventHubProcessor.csproj",
-      "msbuildProject": "../EventHubProcessor/EventHubProcessor.csproj"
-    },
     "EventHubWebSocket/1.0.0": {
       "type": "project",
       "path": "../EventHubWebSocket/EventHubWebSocket.csproj",
@@ -29188,8 +28932,6 @@
     ".NETCoreApp,Version=v2.0": [
       "Autofac >= 4.6.2",
       "Autofac.Extensions.DependencyInjection >= 4.2.0",
-      "EventHub.Domain >= 1.0.0",
-      "EventHubProcessor >= 1.0.0",
       "EventHubWebSocket >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.3",
       "Microsoft.NETCore.App >= 2.0.0"
@@ -29221,12 +28963,6 @@
           "projectReferences": {
             "/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubWebSocket/EventHubWebSocket.csproj": {
               "projectPath": "/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubWebSocket/EventHubWebSocket.csproj"
-            },
-            "/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubProcessor/EventHubProcessor.csproj": {
-              "projectPath": "/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubProcessor/EventHubProcessor.csproj"
-            },
-            "/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/Hckthn.Domain/EventHub.Domain.csproj": {
-              "projectPath": "/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/Hckthn.Domain/EventHub.Domain.csproj"
             }
           }
         }

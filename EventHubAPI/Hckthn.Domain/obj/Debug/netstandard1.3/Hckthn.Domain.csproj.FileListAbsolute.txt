@@ -1,8 +1,0 @@
-/Users/Danny/Development/hackathon/STH.EventHubs/Hckthn.Domain/bin/Debug/netstandard1.3/Hckthn.Domain.deps.json
-/Users/Danny/Development/hackathon/STH.EventHubs/Hckthn.Domain/bin/Debug/netstandard1.3/Hckthn.Domain.dll
-/Users/Danny/Development/hackathon/STH.EventHubs/Hckthn.Domain/bin/Debug/netstandard1.3/Hckthn.Domain.pdb
-/Users/Danny/Development/hackathon/STH.EventHubs/Hckthn.Domain/obj/Debug/netstandard1.3/Hckthn.Domain.csproj.CoreCompileInputs.cache
-/Users/Danny/Development/hackathon/STH.EventHubs/Hckthn.Domain/obj/Debug/netstandard1.3/Hckthn.Domain.AssemblyInfoInputs.cache
-/Users/Danny/Development/hackathon/STH.EventHubs/Hckthn.Domain/obj/Debug/netstandard1.3/Hckthn.Domain.AssemblyInfo.cs
-/Users/Danny/Development/hackathon/STH.EventHubs/Hckthn.Domain/obj/Debug/netstandard1.3/Hckthn.Domain.dll
-/Users/Danny/Development/hackathon/STH.EventHubs/Hckthn.Domain/obj/Debug/netstandard1.3/Hckthn.Domain.pdb
