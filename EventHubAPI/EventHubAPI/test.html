@@ -1,7 +1,7 @@
 ﻿<html>
 <head>
     <script type="text/javascript">
-var socket = new WebSocket("ws://localhost:5000/dataevent");
+var socket = new WebSocket("ws://stranger-things-eventhubapi-test.azurewebsites.net/dataevent");
 
 socket.onmessage = function(data) {
     console.log(data.data);
