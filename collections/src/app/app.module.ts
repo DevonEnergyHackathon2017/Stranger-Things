@@ -3,12 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+
 import { StreamSocket } from './ngWebSocket/stream-socket.service';
 import { NgSocketsService } from './ngWebSocket/ng-web-socket.service';
-
 import { ChartModule } from 'angular2-highcharts';
 import * as highcharts from 'highcharts';
 import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+import { PressureGaugeComponent } from './pressure-gauge/pressure-gauge.component';
+import { RateGaugeComponent } from './rate-gauge/rate-gauge.component';
 
 declare var require: any;
 
@@ -26,12 +29,15 @@ export function highchartsFactory() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PressureGaugeComponent,
+    RateGaugeComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    ChartModule
+    ChartModule,
+    HttpClientModule
   ],
   providers: [
     StreamSocket,

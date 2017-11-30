@@ -10,14 +10,14 @@
             "assets",
             "favicon.ico",
             {
-              "glob": "index.js",
-              "input": "./server/",
-              "output": "./"
+                "glob": "index.js",
+                "input": "./server/",
+                "output": "./"
             },
             {
-              "glob": "package.json",
-              "input": "./server/",
-              "output": "./"
+                "glob": "package.json",
+                "input": "./server/",
+                "output": "./"
             }
         ],
         "index": "index.html",

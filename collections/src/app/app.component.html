@@ -2,6 +2,11 @@
     <h2>Well Streaming</h2>
 </div>
 <div class="row">
+    <div class="col">
+        {{ (dashboard | async)?.Well?.Name }}
+    </div>
+</div>
+<div class="row">
     <div class="col-md-6 offset-md-3">
         <div class="chart-wrapper">
             <chart [options]="options"></chart>
@@ -13,10 +18,14 @@
         <div class="score" [ngClass]="score">Test Data</div>
     </div>
     <div class="col">
-        <chart [options]="bar1"></chart>
+        <div class="chart-wrapper">
+            <app-pressure-gauge></app-pressure-gauge>
+        </div>
+        <!-- <chart [options]="bar1"></chart> -->
     </div>
     <div class="col">
-        <chart [options]="bar2"></chart>
+        <app-rate-gauge></app-rate-gauge>
+        <!-- <chart [options]="bar2"></chart> -->
     </div>
 </div>
 

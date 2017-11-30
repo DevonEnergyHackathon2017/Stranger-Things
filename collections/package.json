@@ -25,6 +25,7 @@
     "angular2-highcharts": "^0.5.5",
     "core-js": "^2.4.1",
     "highcharts": "^6.0.3",
+    "highcharts-solid-gauge": "^0.1.2",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },

@@ -1,12 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { StreamSocket } from './ngWebSocket/stream-socket.service';
+import { PressureGaugeComponent } from './pressure-gauge/pressure-gauge.component';
+import { Dashboard } from './models/dashboard.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import { observeOn } from 'rxjs/operator/observeOn';
+import { Subscribable } from 'rxjs/Observable';
+import { RateGaugeComponent } from './rate-gauge/rate-gauge.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+  @ViewChild(PressureGaugeComponent)
+  pressureGuage: PressureGaugeComponent;
+
+  @ViewChild(RateGaugeComponent)
+  rateGuage: RateGaugeComponent;
+
+  subscription: Subscription;
+  dashboard: Observable<Dashboard>;
   title = 'app';
   options: Object;
   score: String;
@@ -14,90 +30,91 @@ export class AppComponent {
   bar1: Object;
   bar2: Object;
 
-  constructor(private streamService: StreamSocket) {
-    this.bar1 = {
-      chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'World\'s largest cities per 2014'
-    },
-    subtitle: {
-        text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
-    },
-    xAxis: {
-        type: 'category',
-        labels: {
-            rotation: -45,
-            style: {
-                fontSize: '13px',
-                fontFamily: 'Verdana, sans-serif'
-            }
-        }
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Population (millions)'
-        }
-    },
-    legend: {
-        enabled: false
-    },
-    tooltip: {
-        pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
-    },
-    series: [{
-        name: 'Population',
-        data: [
-            ['Shanghai', 23.7]
-          ]}]
-    };
-    this.bar2 = {
-      chart: {
-        type: 'column'
-    },
-    title: {
-      text: ''
-    },
-    xAxis: {
-        type: 'category',
-        lineWidth: 0,
-        minorGridLineWidth: 0,
-        lineColor: 'transparent',
-        labels: {
-            enabled: false
-        },
-        minorTickLength: 0,
-        tickLength: 0
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Population (millions)'
-        },
-        lineWidth: 0,
-        minorGridLineWidth: 0,
-        lineColor: 'transparent',
-        labels: {
-            enabled: false
-        },
-        minorTickLength: 0,
-        tickLength: 0,
-        gridLineColor: 'transparent'
-    },
-    legend: {
-        enabled: false
-    },
-    tooltip: {
-        pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
-    },
-    series: [{
-        name: 'Population',
-        data: [
-            ['Shanghai', 69.7]
-          ]}]
-    };
+  constructor(private streamService: StreamSocket, private _client: HttpClient) {
+    // this.dashboard = new Dashboard();
+    // this.bar1 = {
+    //   chart: {
+    //     type: 'column'
+    // },
+    // title: {
+    //     text: 'World\'s largest cities per 2014'
+    // },
+    // subtitle: {
+    //     text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+    // },
+    // xAxis: {
+    //     type: 'category',
+    //     labels: {
+    //         rotation: -45,
+    //         style: {
+    //             fontSize: '13px',
+    //             fontFamily: 'Verdana, sans-serif'
+    //         }
+    //     }
+    // },
+    // yAxis: {
+    //     min: 0,
+    //     title: {
+    //         text: 'Population (millions)'
+    //     }
+    // },
+    // legend: {
+    //     enabled: false
+    // },
+    // tooltip: {
+    //     pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
+    // },
+    // series: [{
+    //     name: 'Population',
+    //     data: [
+    //         ['Shanghai', 23.7]
+    //       ]}]
+    // };
+    // this.bar2 = {
+    //   chart: {
+    //     type: 'column'
+    // },
+    // title: {
+    //   text: ''
+    // },
+    // xAxis: {
+    //     type: 'category',
+    //     lineWidth: 0,
+    //     minorGridLineWidth: 0,
+    //     lineColor: 'transparent',
+    //     labels: {
+    //         enabled: false
+    //     },
+    //     minorTickLength: 0,
+    //     tickLength: 0
+    // },
+    // yAxis: {
+    //     min: 0,
+    //     title: {
+    //         text: 'Population (millions)'
+    //     },
+    //     lineWidth: 0,
+    //     minorGridLineWidth: 0,
+    //     lineColor: 'transparent',
+    //     labels: {
+    //         enabled: false
+    //     },
+    //     minorTickLength: 0,
+    //     tickLength: 0,
+    //     gridLineColor: 'transparent'
+    // },
+    // legend: {
+    //     enabled: false
+    // },
+    // tooltip: {
+    //     pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
+    // },
+    // series: [{
+    //     name: 'Population',
+    //     data: [
+    //         ['Shanghai', 69.7]
+    //       ]}]
+    // };
     // this.options = {
     //   chart: {
     //     polar: true,
@@ -201,10 +218,18 @@ export class AppComponent {
     });
   }
 
-  OnInit() {
-    // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    // Add 'implements OnInit' to the class.
+  ngOnInit() {
+    const observer = this._client.get<Dashboard>('../assets/test.json');
+    this.dashboard = observer;
+    this.subscription = observer.subscribe( (data: Dashboard) => {
+      console.log(data);
+      this.rateGuage.redraw(data.Bracket.Rate);
+      this.pressureGuage.redraw(data.Bracket.Pressure);
+    });
+  }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   randomIntFromInterval(min, max) {
@@ -280,7 +305,7 @@ export class AppComponent {
     this.options = {
       chart: {
         polar: true,
-        type: 'line'
+        type: 'area'
       },
 
       title: {
