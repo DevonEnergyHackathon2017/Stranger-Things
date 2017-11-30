@@ -15,24 +15,39 @@ export class SpiderChartComponent implements OnInit {
     this.options = {
       chart: {
         polar: true,
-        type: 'area'
+        type: 'area',
+        width: 350,
       },
       legend: {
-        align: 'right',
-        verticalAlign: 'top',
-        y: 100,
-        layout: 'vertical'
+        align: 'center',
+        verticalAlign: 'bottom',
+        // y: 100,
+        layout: 'horizontal'
       },
       xAxis: {
-        tickmarkPlacement: 'on'
+        categories: [
+          'TP',
+          'SR',
+          'Sand',
+          'FR'],
+        tickmarkPlacement: 'on',
+        lineWidth: 0
       },
       yAxis: {
-        gridLineInterpolation: 'polygon',
+        // gridLineInterpolation: 'polygon',
         lineWidth: 0,
         min: 0,
-        max: 6000
+        max: 6000,
+        angle: 45
       },
-      series: []
+      series: [],
+      exporting: {
+        buttons: {
+          contextButton: {
+            enabled: false
+          }
+        }
+      }
     };
   }
 
@@ -42,6 +57,23 @@ export class SpiderChartComponent implements OnInit {
 
   saveInstance(instance) {
     this.chart = instance;
+  }
+
+  getName(key): string {
+    switch (key) {
+      case 0:
+        return 'Current';
+      case 1:
+        return '5 seconds Ago';
+      case 2:
+        return '10 seconds Ago';
+      case 3:
+        return '15 seconds Ago';
+      case 4:
+        return '20 seconds Ago';
+      case 5:
+        return '25 seconds Ago';
+    }
   }
 
   redraw(dataSet) {
@@ -57,7 +89,8 @@ export class SpiderChartComponent implements OnInit {
           dataSet[key].FR
         ],
         color: colors[this.randomIntFromInterval(0, 5)],
-        fillOpacity: .90 - (.15 * index)
+        fillOpacity: .90 - (.15 * index),
+        name: this.getName(index)
       });
     });
 
@@ -65,6 +98,7 @@ export class SpiderChartComponent implements OnInit {
       s['animation'] = false;
     });
     if (this.chart) {
+      // this.chart.title = dataSet.Well.Name;
       if (this.chart.series.length !== series.length) {
         series.forEach((serie, i) => {
           this.chart.addSeries(serie, false);
@@ -78,6 +112,7 @@ export class SpiderChartComponent implements OnInit {
         });
       }
       this.chart.redraw();
+      this.chart.reflow();
     }
   }
 }

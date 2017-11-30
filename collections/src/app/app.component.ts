@@ -44,6 +44,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
     this.streamService.messages.subscribe(data => {
       if (this.data) {
+        console.log(data);
         this.handleNewData(this.data);
       }
     });

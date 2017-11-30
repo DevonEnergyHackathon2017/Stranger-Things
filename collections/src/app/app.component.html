@@ -1,14 +1,6 @@
 <button (click)="addData()">Test</button>
-<div class="">
+<div>
     <h2>Well Streaming</h2>
-    <div class="row">
-        <div class="col">
-            <app-rate-gauge></app-rate-gauge>
-        </div>
-        <div class="col">
-            <app-gauge></app-gauge>
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-4">
             {{ (dashboard | async)?.Well?.Name }}
@@ -17,9 +9,17 @@
             <div class="score" [ngClass]="score">Test Data</div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
+    <div class="row justify-content-md-center">
+        <div class="col-6">
             <app-spider-chart></app-spider-chart>
+        </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-6 col-md-6">
+            <app-rate-gauge></app-rate-gauge>
+        </div>
+        <div class="col-6 col-md-6">
+            <app-gauge></app-gauge>
         </div>
     </div>
 </div>

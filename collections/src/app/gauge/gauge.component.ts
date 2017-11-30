@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BracketSet } from '../models/bracket.model';
+import { BracketSet, BracketPoint } from '../models/bracket.model';
 
 @Component({
   selector: 'app-gauge',
@@ -10,23 +10,37 @@ export class GaugeComponent implements OnInit {
   data: BracketSet;
   options: Object;
   chart: any;
+
+  gaugeType = 'semi';
+  gaugeLabel = 'Pressure';
+  gaugeAppendText = 'K psi';
+  guageSize = 140;
+  thresholdConfig: any = {
+    '0': {color: 'green'},
+    '40': {color: 'orange'},
+    '75.5': {color: 'red'}
+  };
+
   @ViewChild('wrapper')
   wrapper;
 
   constructor() {
-
+    this.data = new BracketSet();
+    this.data.Next = new BracketPoint();
+    this.data.Previous = new BracketPoint();
   }
 
   redraw(data) {
     this.data = data;
-    if (this.chart) {
-      this.chart.series[0].setData([this.randomIntFromInterval(this.data.Previous.Value, this.data.Next.Value)], false);
-      this.chart.yAxis[0].setExtremes(this.data.Previous.Value, this.data.Next.Value);
-      this.chart.redraw();
-      const width = (this.wrapper.nativeElement.clientWidth * .9);
-      this.chart.setSize(width,  (9 * width) / 16);
-      this.chart.reflow();
-    }
+    this.data.Current = this.randomIntFromInterval(0, 80);
+    const min = this.data.Previous.Value = this.randomIntFromInterval(0, 40);
+    const max = this.data.Next.Value = this.randomIntFromInterval(40, 80);
+
+    this.thresholdConfig = {};
+    const half = (min + max / 2);
+    this.thresholdConfig[min] = { color: 'green' };
+    this.thresholdConfig[half] = { color: 'orange' };
+    this.thresholdConfig[max] = { color: 'red' };
   }
 
   randomIntFromInterval(min, max) {
@@ -38,69 +52,5 @@ export class GaugeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.wrapper.nativeElement.clientWidth);
-    this.options = {
-      chart: {
-        type: 'solidgauge',
-        margin: [30, 0, 0, 0]
-      },
-      series: [{
-        name: 'Data',
-        data: [],
-        dataLabels: {
-          format: '<div style="text-align:center"><span style="font-size:1.7em;color:black;">{y}</span>'
-        },
-        tooltip: {
-          valueSuffix: ''
-        }
-      }],
-      title: {
-        text: 'Pressure'
-      },
-      pane: {
-        size: '100%',
-        startAngle: -90,
-        endAngle: 90,
-        background: {
-          backgroundColor: '#EEE',
-          innerRadius: '60%',
-          outerRadius: '100%',
-          shape: 'arc'
-        }
-      },
-      tooltip: {
-        enabled: false
-      },
-      // the value axis
-      yAxis: {
-        stops: [
-          [0.1, '#55BF3B'], // green
-          [0.5, '#DDDF0D'], // yellow
-          [0.9, '#DF5353'] // red
-        ],
-        lineWidth: 0,
-        minorTickInterval: null,
-        tickAmount: 2,
-        title: {
-          y: -50
-        },
-      },
-      plotOptions: {
-        solidgauge: {
-          dataLabels: {
-            y: 5,
-            borderWidth: 0,
-            useHTML: true
-          }
-        }
-      },
-      exporting: {
-        buttons: {
-            contextButton: {
-                enabled: false
-            }
-        }
-      }
-    };
   }
 }

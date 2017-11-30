@@ -1,3 +1,5 @@
 <div class="chart-wrapper" #wrapper>
-    <chart [options]="options" (load)="saveInstance($event.context)" style="display:block;"></chart>
+    <!-- <chart [options]="options" (load)="saveInstance($event.context)" style="display:block;"></chart> -->
+    <ngx-gauge [type]="gaugeType" [min]="data.Previous.Value" [max]="data.Next.Value" [size]="guageSize" [value]="data.Current" [label]="gaugeLabel" [append]="gaugeAppendText" [duration]="250" [thresholds]="thresholdConfig">
+    </ngx-gauge>
 </div>

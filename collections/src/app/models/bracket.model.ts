@@ -6,10 +6,10 @@ export class Brackets {
 export class BracketSet {
   Previous: BracketPoint;
   Next: BracketPoint;
-  Current: Number;
+  Current: number;
 }
 
 export class BracketPoint {
-  Value: Number;
-  Cost: Number;
+  Value: number;
+  Cost: number;
 }

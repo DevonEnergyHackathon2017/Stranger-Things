@@ -13,6 +13,7 @@ import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 import { SpiderChartComponent } from './spider-chart/spider-chart.component';
 import { GaugeComponent } from './gauge/gauge.component';
 import { RateGaugeComponent } from './rate-gauge/rate-gauge.component';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 declare var require: any;
 
@@ -39,7 +40,8 @@ export function highchartsFactory() {
     BrowserModule,
     NgbModule.forRoot(),
     ChartModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxGaugeModule
   ],
   providers: [
     StreamSocket,
@@ -47,8 +49,9 @@ export function highchartsFactory() {
     {
       provide: HighchartsStatic,
       useFactory: highchartsFactory
-    },
+    }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,
+  ]
 })
 export class AppModule { }
