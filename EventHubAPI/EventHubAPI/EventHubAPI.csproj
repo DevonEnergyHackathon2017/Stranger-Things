@@ -20,7 +20,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EventHubWebSocket\EventHubWebSocket.csproj" />
-    <ProjectReference Include="..\EventHubProcessor\EventHubProcessor.csproj" />
-    <ProjectReference Include="..\Hckthn.Domain\EventHub.Domain.csproj" />
   </ItemGroup>
 </Project>
