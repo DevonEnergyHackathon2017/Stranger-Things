@@ -18,6 +18,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { Adal4Service, Adal4HTTPService } from 'adal-angular4';
 import { StreamComponent } from './stream/stream.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { HomeComponent } from './home/home.component';
 
 declare var require: any;
 
@@ -34,8 +36,9 @@ export function highchartsFactory() {
 }
 
 const routes: Routes = [
-  { path: '', component: StreamComponent },                               // <-- MODIFY
-  { path: '**', component: AppComponent }                          // <-- MODIFY
+  { path: 'stream', component: StreamComponent },
+  { path: 'board', component: LeaderboardComponent },
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({
@@ -44,7 +47,9 @@ const routes: Routes = [
     GaugeComponent,
     RateGaugeComponent,
     SpiderChartComponent,
-    StreamComponent
+    StreamComponent,
+    LeaderboardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,11 +66,11 @@ const routes: Routes = [
       provide: HighchartsStatic,
       useFactory: highchartsFactory
     },
-    Adal4Service,                                                       // <-- ADD
-    {                                                                   // <-- ADD
-      provide: Adal4HTTPService,                                        // <-- ADD
-      useFactory: Adal4HTTPService.factory,                             // <-- ADD
-      deps: [HttpClient, Adal4Service]                                        // <-- ADD
+    Adal4Service,
+    {
+      provide: Adal4HTTPService,
+      useFactory: Adal4HTTPService.factory,
+      deps: [HttpClient, Adal4Service]
     }
   ],
   bootstrap: [AppComponent],

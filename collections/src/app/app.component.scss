@@ -35,3 +35,45 @@
     padding-bottom: 5px;
     max-height: 50px;
 }
+
+.score {
+    padding: 5px;
+    background: white;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-family: proxima-nova, "Open Sans", Helvetica, Arial, sans-serif;
+    text-transform: lowercase;
+}
+
+.header {
+    padding: 10px;
+    background: #292d31;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.well-name {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.well-stage {
+    font-size: 0.8em;
+}
+
+.devon-icon {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    max-height: 50px;
+}
+
+.active-link {
+    text-decoration: underline;
+}

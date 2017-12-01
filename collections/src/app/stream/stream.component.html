@@ -1,22 +1,13 @@
-<div class="header">
-    <div class="row">
-        <div class="col-6">
-            <div class="well-name">
+<div style="width: 90%; margin: 0 auto;" [hidden]="!dashboard">
+    <div class="row bottom-border">
+        <div class="col-4">
+            <div class="well-name black">
                 {{ dashboard?.Well?.Name }}
             </div>
-            <div class="well-stage" *ngIf="dashboard">
+            <div class="well-stage black">
                 Stage 2
             </div>
         </div>
-        <div class="col-6">
-            <div class="float-right">
-                <div class="logo">STOG</div>
-            </div>
-        </div>
-    </div>
-</div>
-<div style="width: 90%; margin: 0 auto;" [hidden]="!dashboard">
-    <div class="row bottom-border">
         <div class="col-4 text-center">
             <label class="label-control mb-0">Score</label>
             <div class="score" [ngStyle]="{'background': scoreColor, 'color': scoreTextColor}">
