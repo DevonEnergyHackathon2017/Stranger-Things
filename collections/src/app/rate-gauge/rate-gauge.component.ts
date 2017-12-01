@@ -36,10 +36,10 @@ export class RateGaugeComponent implements OnInit {
     const max = this.data.Next.Value;
 
     this.thresholdConfig = {};
-    const half = (min + max / 2);
-    this.thresholdConfig[min] = { color: 'green' };
+    const half = (min + max) / 2;
+    this.thresholdConfig[min + (min * .075)] = { color: 'green' };
     this.thresholdConfig[half] = { color: 'orange' };
-    this.thresholdConfig[max] = { color: 'red' };
+    this.thresholdConfig[max - (max * .075)] = { color: 'red' };
   }
 
 

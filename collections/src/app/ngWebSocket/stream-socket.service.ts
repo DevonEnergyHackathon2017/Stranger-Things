@@ -14,7 +14,6 @@ export class StreamSocket {
       .map((response: MessageEvent): Dashboard => {
         const data = JSON.parse(response.data);
         if ( typeof(data) === 'string' && data.includes('connect||')) {
-          console.log(data.replace('connect||', ''));
           return null;
         }
         return data;

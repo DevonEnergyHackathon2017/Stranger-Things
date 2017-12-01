@@ -19,7 +19,6 @@ export class NgSocketsService {
   private _create(url: string) {
     const ws = new WebSocket(url);
     ws.onopen = function(message) {
-      console.log(message);
     };
 
     // bind events from sent from the socket
