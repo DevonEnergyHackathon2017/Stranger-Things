@@ -58,6 +58,9 @@ export class StreamComponent implements OnInit, OnDestroy {
   }
 
   getTextColor(hex) {
+    if (hex === undefined) {
+      hex = '#FFFFFF';
+    }
     hex = hex.replace('#', '');
     let r, g, b;
     r = hex.substring(0, 2);
