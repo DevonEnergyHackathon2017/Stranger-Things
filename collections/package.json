@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
+    "adal-angular4": "^1.1.10",
     "angular-gauge": "^2.0.0",
     "angular2-highcharts": "^0.5.5",
     "core-js": "^2.4.1",

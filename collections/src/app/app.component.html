@@ -1,12 +1,6 @@
-<div class="header">
+<div class="header" *ngIf="!authenticated">
     <div class="row">
         <div class="col-6">
-            <div class="well-name">
-                {{ dashboard?.Well?.Name }}
-            </div>
-            <div class="well-stage" *ngIf="dashboard">
-                Stage 2
-            </div>
         </div>
         <div class="col-6">
             <div class="float-right">
@@ -15,33 +9,4 @@
         </div>
     </div>
 </div>
-<div style="width: 90%; margin: 0 auto;" [hidden]="!dashboard">
-    <div class="row bottom-border">
-        <div class="col-4 text-center">
-            <label class="label-control mb-0">Score</label>
-            <div class="score" [ngStyle]="{'background': scoreColor, 'color': scoreTextColor}">
-                {{ dashboard?.TotalScore }}
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-md-center bottom-border">
-        <div class="col-6">
-            <app-spider-chart></app-spider-chart>
-        </div>
-    </div>
-    <div class="row mt-3 justify-content-md-center bottom-border">
-        <div class="col-6 col-md-6 text-center">
-            <app-rate-gauge></app-rate-gauge>
-        </div>
-        <div class="col-6 col-md-6 text-center">
-            <app-gauge></app-gauge>
-        </div>
-    </div>
-</div>
-<div style="width: 90%; margin: 0 auto; height: 85vh;" *ngIf="!dashboard">
-    <div class="row">
-        <div class="col text-center">
-            Waiting on the stream...
-        </div>
-    </div>
-</div>
+<router-outlet></router-outlet>
