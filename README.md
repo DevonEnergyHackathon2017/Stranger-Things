@@ -48,33 +48,52 @@ __Azure Event Hub__ where it can be picked up by a client consumer - i.e. _WebAp
 * Visual Studio Team Services
 * Slack 
 
+## Dependencies
+* DotNet Core 2.0
+* [PI-Web-API-Client-DotNet-Core](https://github.com/osimloeff/PI-Web-API-Client-DotNet-Core)
+* Microsoft.Azure.EventHubs
+* Autofac 
+* Newtonsoft.Json
+
 ## Build
 Each part of the application stack needs to be build individually and they all work together to
 produce the product.
 * strange-piwebapi (get data from piwebapi)
   * open the solution in visual studio
-  * restore packages
+  * `nuget restore`
   * build
 * EventPublisher.ConsoleApp (publish data from strange-piwebapi into Azure Event Hub)
   * open the solution in visual studio
-  * restore packages
+  * `nuget restore`
   * build
 * Azure Event Hub (configure only, no source code)
 * Azure Stream Analytics (configure only, no source code)
 * EventHubAPI (web client service layer, websockets, etc)
   * open the solution in visual studio
-  * restore packages
+  * `nuget restore`
   * build
-* {angluar app}
-  * {build instructions}
+* collections (webapp) 
+````bash
+> npm install
+> npm intall -g @angular/cli
+> ng build
+````
 
 ## Deploy
 * strange-piwebapi: _runs as a client anywhere (Azure VM for Hackathon)_
+  * navigate to the `/bin/Release/netcoreapp2.0`
+  * run `dotnet strange-piwebapi.dll`
 * EventPublisher.ConsoleApp: _runs as a client anywhere (Azure VM for Hackathon)_
+  * navigate to the `/bin/Release/netcoreapp2.0`
+  * run `dotnet Hckthn.EventPublisher.ConsoleApp.dll`
 * Azure Event Hub: _its a cloud service... just let Microsft manage this one!_
 * Azure Stream Analytics: _oh, glorious cloud!_
 * EventHubAPI: _azure app service_
-* {angular app}: _azure app service_
+  * enable 'websockets' on the Azure app service
+  * navigate to the `/bin/Release/netcoreapp2.0`
+  * run `dotnet EventHubAPI.dll`
+* collections: _azure app service_
+  * `node ./src/server/index.js`
 
 ## Team
 * Danny.Burrows - Monscierge
