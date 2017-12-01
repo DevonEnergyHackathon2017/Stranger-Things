@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{EA9EF9F3-CE27-40D0-962A-E4E441E53B8F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EventHubAPI/test.html">
+    <Files>
+      <File FileName="EventHubAPI/Startup.cs" Line="1" Column="1" />
+      <File FileName="EventHubAPI/Controllers/DataEventController.cs" Line="1" Column="1" />
+      <File FileName="EventHubAPI/Controllers/StreamController.cs" Line="1" Column="1" />
+      <File FileName="EventHubAPI/test.html" Line="22" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubAPI/Program.cs" relfile="EventHubAPI/Program.cs" line="33" column="38" />
+      <Breakpoint file="/Users/Danny/Development/hackathon/Stranger-Things/EventHubAPI/EventHubAPI/Program.cs" relfile="EventHubAPI/Program.cs" line="34" column="27" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.EventHubAPI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

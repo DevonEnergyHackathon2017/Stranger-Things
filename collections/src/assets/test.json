@@ -1,0 +1,94 @@
+{
+    "Well": {
+        "Id": 20,
+        "Name": "Well 2"
+    },
+    "TotalScore": 50,
+    "Instant": {
+        "0": {
+            "TP": 1000,
+            "SR": 2500,
+            "Sand": 2500,
+            "FR": 5000,
+            "Gel": null,
+            "Cross": null,
+            "Cost": 10
+        },
+        "1": {
+            "TP": 2000,
+            "SR": 3000,
+            "Sand": 500,
+            "FR": 1000,
+            "Gel": null,
+            "Cross": null,
+            "Cost": 10
+        },
+        "2": {
+            "TP": 1000,
+            "SR": 4000,
+            "Sand": 3000,
+            "FR": 1500,
+            "Gel": null,
+            "Cross": null,
+            "Cost": 12
+        },
+        "3": {
+            "TP": 4000,
+            "SR": 3000,
+            "Sand": 2000,
+            "FR": 1000,
+            "Gel": null,
+            "Cross": null,
+            "Cost": 10
+        },
+        "4": {
+            "TP": 1500,
+            "SR": 2500,
+            "Sand": 5500,
+            "FR": 3000,
+            "Gel": null,
+            "Cross": null,
+            "Cost": 6
+        },
+        "5": {
+            "TP": 4000,
+            "SR": 2900,
+            "Sand": 3500,
+            "FR": 2200,
+            "Gel": null,
+            "Cross": null,
+            "Cost": 8
+        }
+    },
+    "Design": {
+        "TP": 1000,
+        "SR": 1000,
+        "Sand": 1000,
+        "FR": 1000,
+        "Cost": 10
+    },
+    "Bracket": {
+        "Pressure": {
+            "Previous": {
+                "Value": 60,
+                "Cost": 8
+            },
+            "Next": {
+                "Value": 80,
+                "Cost": 10
+            },
+            "Current": 79
+        },
+        "Rate": {
+            "Previous": {
+                "Value": 20,
+                "Cost": 10
+            },
+            "Next": {
+                "Value": 40,
+                "Cost": 10
+            },
+            "Current": 25
+        }
+    }
+}

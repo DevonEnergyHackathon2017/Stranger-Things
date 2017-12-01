@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+body,
+html {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    color: #a1a2a3;
+    text-transform: uppercase;
+}
+
+tspan {
+    padding-bottom: 5px;
+}
+
+.bottom-border {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.previous {
+    position: absolute;
+    top: 70px;
+    left: 15px;
+    @media(min-width: 468px) {
+        left: 20%;
+    }
+    @media(min-width: 720px) {
+        left: 28%;
+    }
+    @media(min-width: 1024px) {
+        left: 38%;
+    }
+}
+
+.next {
+    position: absolute;
+    top: 70px;
+    right: 15px;
+    @media(min-width: 468px) {
+        right: 20%;
+    }
+    @media(min-width: 720px) {
+        right: 28%;
+    }
+    @media(min-width: 1024px) {
+        right: 38%;
+    }
+}
