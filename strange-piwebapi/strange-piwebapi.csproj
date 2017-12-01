@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OSIsoft.PIDevClub.PIWebApiClient" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="PI-Web-API-Client-DotNet-Core\src\OSIsoft.PIDevClub.PIWebApiClient\LibraryTest\Program.cs" />
+    <Compile Remove="PI-Web-API-Client-DotNet-Core\src\OSIsoft.PIDevClub.PIWebApiClient\OSIsoft.PIDevClub.PIWebApiClient\Api\AnalysisApi.cs" />
+    <Compile Remove="PI-Web-API-Client-DotNet-Core\src\OSIsoft.PIDevClub.PIWebApiClient\OSIsoft.PIDevClub.PIWebApiClient\Api\AnalysisCategoryApi.cs" />
+    <Compile Remove="PI-Web-API-Client-DotNet-Core\src\OSIsoft.PIDevClub.PIWebApiClient\OSIsoft.PIDevClub.PIWebApiClient\Api\AnalysisRuleApi.cs" />
+    <Compile Remove="PI-Web-API-Client-DotNet-Core\src\OSIsoft.PIDevClub.PIWebApiClient\OSIsoft.PIDevClub.PIWebApiClient\Api\AnalysisRulePlugInApi.cs" />
+    <Compile Remove="PI-Web-API-Client-DotNet-Core\src\OSIsoft.PIDevClub.PIWebApiClient\OSIsoft.PIDevClub.PIWebApiClient\Api\AnalysisTemplateApi.cs" />
+    <Compile Remove="PI-Web-API-Client-DotNet-Core\src\OSIsoft.PIDevClub.PIWebApiClient\OSIsoft.PIDevClub.PIWebApiClient\Api\AssetDatabaseApi.cs" />
+  </ItemGroup>
+</Project>
