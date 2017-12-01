@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SnapshotInstance } from '../models/snapshot.model';
 
 @Component({
   selector: 'app-spider-chart',
@@ -13,7 +14,7 @@ export class SpiderChartComponent implements OnInit {
 
   constructor() {
     this.greenGradient = {
-      0: '#00FF00',
+      0: '#008000',
       1: '#7FFF7F',
       2: '#94FF94',
       3: '#BFFFBF',
@@ -23,7 +24,7 @@ export class SpiderChartComponent implements OnInit {
     };
 
     this.redGradient = {
-      0: '#FF0000',
+      0: '#800000',
       1: '#FF7F7F',
       2: '#FF9494',
       3: '#FFBFBF',
@@ -37,7 +38,7 @@ export class SpiderChartComponent implements OnInit {
     this.options = {
       chart: {
         polar: true,
-        type: 'line',
+        type: 'area',
         width: 350,
         height: 350
       },
@@ -55,7 +56,7 @@ export class SpiderChartComponent implements OnInit {
         categories: [
           'Pressure',
           'Rate',
-          'Sand',
+          'Sand Conc',
           'FR'],
         tickmarkPlacement: 'on',
         lineWidth: 0
@@ -63,7 +64,7 @@ export class SpiderChartComponent implements OnInit {
       yAxis: {
         lineWidth: 0,
         min: 0,
-        max: 6000,
+        max: 1,
         angle: 45
       },
       series: [],
@@ -109,11 +110,20 @@ export class SpiderChartComponent implements OnInit {
     return color;
   }
 
+  normalize(instance) {
+    const data: any = {};
+    data.TP = instance.TP / 10000;
+    data.SR = 1 - ( (instance.SR - 20) / 80 );
+    data.Sand = 1 - ( ( instance.Sand ) / 5 );
+    data.FR = instance.FR / 3;
+    return data;
+  }
+
   redraw(instant, design) {
     const series = [];
     Object.keys(instant).forEach(key => {
       const index = parseInt(key, null);
-      const dataPoint = instant[key];
+      const dataPoint = this.normalize(instant[key]);
       series.push({
         data: [
           dataPoint.TP,
@@ -121,18 +131,19 @@ export class SpiderChartComponent implements OnInit {
           dataPoint.Sand,
           dataPoint.FR
         ],
-        color: this.calculateColor(dataPoint.Cost, design.Cost, index),
+        color: this.calculateColor(instant[key].Cost, design.Cost, index),
         opacity: 1 - (.15 * index),
         fillOpacity: key === '0' ? 100 : 0,
         name: this.getName(index)
       });
     });
+    const normalizedDesign = this.normalize(design);
     series.push({
       data: [
-        design.TP,
-        design.SR,
-        design.Sand,
-        design.FR
+        normalizedDesign.TP,
+        normalizedDesign.SR,
+        normalizedDesign.Sand,
+        normalizedDesign.FR
       ],
       color: '#000000',
       fillOpacity: 0,
