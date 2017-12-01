@@ -8,8 +8,30 @@ import { Component, OnInit } from '@angular/core';
 export class SpiderChartComponent implements OnInit {
   options: Object;
   chart: any;
+  greenGradient: any;
+  redGradient: any;
 
-  constructor() { }
+  constructor() {
+    this.greenGradient = {
+      0: '#00FF00',
+      1: '#7FFF7F',
+      2: '#94FF94',
+      3: '#BFFFBF',
+      4: '#D4FFD4',
+      5: '#E9FFE9',
+      6: '#FFFFFF'
+    };
+
+    this.redGradient = {
+      0: '#FF0000',
+      1: '#FF7F7F',
+      2: '#FF9494',
+      3: '#FFBFBF',
+      4: '#FFD4D4',
+      5: '#FFE9E9',
+      6: '#FFFFFF'
+    };
+  }
 
   ngOnInit() {
     this.options = {
@@ -80,9 +102,9 @@ export class SpiderChartComponent implements OnInit {
     const status = design - current;
     let color = '';
     if (status < 0) {
-      color = '#ff0000';
+      color = this.redGradient[index];
     } else {
-      color = '#00ff00';
+      color = this.greenGradient[index];
     }
     return color;
   }
