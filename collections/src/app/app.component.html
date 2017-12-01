@@ -1,12 +1,22 @@
-<button (click)="addData()">Test</button>
-<div>
-    <h2>Well Streaming</h2>
+<div class="header">
     <div class="row">
-        <div class="col-md-4">
-            {{ (dashboard | async)?.Well?.Name }}
+        <div class="col-6">
+            <div class="well-name">
+                {{ (dashboard | async)?.Well?.Name }}
+            </div>
+            <div class="well-stage">
+                Stage 2
+            </div>
         </div>
-        <div class="col-md-2">
-            <div class="score" [ngClass]="score">Test Data</div>
+        <div class="col-6">
+            <div class="devon-icon float-right"></div>
+        </div>
+    </div>
+</div>
+<div style="width: 90%; margin: 0 auto;">
+    <div class="row">
+        <div class="col-4">
+            <div class="score" [ngStyle]="{'background': scoreColor}">{{ score }}</div>
         </div>
     </div>
     <div class="row justify-content-md-center">

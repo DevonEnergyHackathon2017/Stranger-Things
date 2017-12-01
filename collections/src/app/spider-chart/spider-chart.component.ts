@@ -26,8 +26,8 @@ export class SpiderChartComponent implements OnInit {
       },
       xAxis: {
         categories: [
-          'TP',
-          'SR',
+          'Pressure',
+          'Rate',
           'Sand',
           'FR'],
         tickmarkPlacement: 'on',
@@ -64,34 +64,57 @@ export class SpiderChartComponent implements OnInit {
       case 0:
         return 'Current';
       case 1:
-        return '5 seconds Ago';
+        return '-5 sec';
       case 2:
-        return '10 seconds Ago';
+        return '-10 sec';
       case 3:
-        return '15 seconds Ago';
+        return '-15 sec';
       case 4:
-        return '20 seconds Ago';
+        return '-20 sec';
       case 5:
-        return '25 seconds Ago';
+        return '-25 sec';
     }
   }
 
-  redraw(dataSet) {
-    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+  calculateColor(current, design, index) {
+    const status = design - current;
+    let color = '';
+    if (status < 0) {
+      color = '#ff0000';
+    } else {
+      color = '#00ff00';
+    }
+    return color;
+  }
+
+  redraw(instant, design) {
+    // const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
     const series = [];
-    Object.keys(dataSet).forEach(key => {
+    Object.keys(instant).forEach(key => {
       const index = parseInt(key, null);
+      const dataPoint = instant[key];
       series.push({
         data: [
-          dataSet[key].TP,
-          dataSet[key].SR,
-          dataSet[key].Sand,
-          dataSet[key].FR
+          dataPoint.TP,
+          dataPoint.SR,
+          dataPoint.Sand,
+          dataPoint.FR
         ],
-        color: colors[this.randomIntFromInterval(0, 5)],
-        fillOpacity: .90 - (.15 * index),
+        color: this.calculateColor(dataPoint.Cost, design.Cost, index),
+        fillOpacity: key === '0' ? 100 : 0,
         name: this.getName(index)
       });
+    });
+    series.push({
+      data: [
+        design.TP,
+        design.SR,
+        design.Sand,
+        design.FR
+      ],
+      color: '#000000',
+      fillOpacity: 0,
+      name: 'Design'
     });
 
     series.forEach((s, i) => {
@@ -107,6 +130,7 @@ export class SpiderChartComponent implements OnInit {
         this.chart.series.forEach((serie, i) => {
           serie.setData(series[i].data, true);
           serie.options.color = series[i].color;
+          serie.options.opacity = series[i].opacity,
           serie.options.fillOpacity = series[i].fillOpacity;
           serie.update(serie.options);
         });

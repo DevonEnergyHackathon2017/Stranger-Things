@@ -29,9 +29,10 @@ export class AppComponent implements OnInit, OnDestroy {
   dashboard: Observable<Dashboard>;
   title = 'app';
   options: Object;
-  score: String;
+  scoreColor: String;
   chart: any;
   data: Dashboard;
+  score: any;
 
   constructor(private streamService: StreamSocket, private _client: HttpClient) {
   }
@@ -56,9 +57,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   handleNewData(data) {
     this.data = data;
+    const colors = ['#ff0000', '#00ff00', '#ffff00', '#ff00ff', '#0088ff', '#0000ff'];
+    this.score = this.data.TotalScore;
+    const val = Math.trunc((this.score / 100) * 6);
+    this.scoreColor = colors[val - 1];
     this.rateGuage.redraw(data.Bracket.Rate);
     this.pressureGuage.redraw(data.Bracket.Pressure);
-    this.spiderChart.redraw(data.Instant);
+    this.spiderChart.redraw(data.Instant, data.Design);
   }
 
   randomIntFromInterval(min, max) {
@@ -70,10 +75,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   addData() {
-    const colors = ['red', 'blue', 'aqua', 'purple', 'orange', 'aquamarine'];
-    this.score = colors[this.randomIntFromInterval(0, 5)];
-    this.spiderChart.redraw(this.data.Instant);
-    this.rateGuage.redraw(this.data.Bracket.Rate);
-    this.pressureGuage.redraw(this.data.Bracket.Pressure);
+    this.handleNewData(this.data);
   }
 }

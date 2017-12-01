@@ -3,7 +3,7 @@
         "Id": 20,
         "Name": "Well 2"
     },
-    "TotalScore": 100,
+    "TotalScore": 50,
     "Instant": {
         "0": {
             "TP": 1000,
@@ -60,7 +60,7 @@
             "Cost": 8
         }
     },
-    "design": {
+    "Design": {
         "TP": 1000,
         "SR": 1000,
         "Sand": 1000,

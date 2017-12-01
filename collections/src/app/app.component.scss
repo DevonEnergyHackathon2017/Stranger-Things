@@ -1,29 +1,27 @@
 .score {
     padding: 5px;
     background: white;
-    border: 1px solid blue;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
-.red {
-    background: red;
+.header {
+    padding: 10px;
+    background: #292d31;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
-.blue {
-    background: blue;
+.well-name {
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
-.aqua {
-    background: aqua;
+.well-stage {
+    font-size: 0.8em;
 }
 
-.purple {
-    background: purple;
-}
-
-.orange {
-    background: orange;
-}
-
-.aquamarine {
-    background: aquamarine;
+.devon-icon {
+    background: url('../assets/devon.png');
 }
