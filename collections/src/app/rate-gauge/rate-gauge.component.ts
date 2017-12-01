@@ -15,7 +15,7 @@ export class RateGaugeComponent implements OnInit {
   gaugeLabel = 'Rate';
   gaugeAppendText = '';
   guageSize = 140;
-  thresholdConfig = {
+  thresholdConfig: any = {
     '0': {color: 'green'},
     '40': {color: 'orange'},
     '75.5': {color: 'red'}
@@ -32,7 +32,16 @@ export class RateGaugeComponent implements OnInit {
 
   redraw(data) {
     this.data = data;
+    const min = this.data.Previous.Value;
+    const max = this.data.Next.Value;
+
+    this.thresholdConfig = {};
+    const half = (min + max / 2);
+    this.thresholdConfig[min] = { color: 'green' };
+    this.thresholdConfig[half] = { color: 'orange' };
+    this.thresholdConfig[max] = { color: 'red' };
   }
+
 
   saveInstance(instance) {
     this.chart = instance;

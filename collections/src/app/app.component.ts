@@ -31,6 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
   chart: any;
   dashboard: Dashboard;
   score: any;
+  scoreTextColor: String;
 
   constructor(private streamService: StreamSocket, private _client: HttpClient) {
     this.streamService.messages.subscribe((data: any) => {
@@ -50,11 +51,25 @@ export class AppComponent implements OnInit, OnDestroy {
 
   }
 
+  getTextColor(hex) {
+    hex = hex.replace('#', '');
+    let r, g, b;
+    r = hex.substring(0, 2);
+    g = hex.substring(2, 4);
+    b = hex.substring(4, 6);
+    const a = 1 - ( (0.299 * r) + (0.587 * g) + (0.114 * b)) / 255;
+    if (a < 0.5) {
+      return '#000';
+    }
+    return '#fff';
+  }
+
   handleNewData(data: Dashboard) {
     this.dashboard = data;
     const colors = ['#ff0000', '#00ff00', '#ffff00', '#ff00ff', '#0088ff', '#0000ff'];
     const val = Math.trunc((this.dashboard.TotalScore / 100) * 6);
     this.scoreColor = colors[val - 1];
+    this.scoreTextColor = this.getTextColor(this.scoreColor);
     this.rateGuage.redraw(data.Bracket.Rate);
     this.pressureGuage.redraw(data.Bracket.Pressure);
     this.spiderChart.redraw(data.Instant, data.Design);

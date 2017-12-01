@@ -1,4 +1,5 @@
 <div class="chart-wrapper" #wrapper>
     <ngx-gauge [type]="gaugeType" [min]="data.Previous.Value" [max]="data.Next.Value" [size]="guageSize" [value]="data.Current" [label]="gaugeLabel" [append]="gaugeAppendText" [duration]="250" [thresholds]="thresholdConfig">
     </ngx-gauge>
+    <span class="previous">{{ data?.Previous?.Value }}</span><span class="next">{{ data?.Next?.Value }}</span>
 </div>

@@ -15,14 +15,19 @@ export class SpiderChartComponent implements OnInit {
     this.options = {
       chart: {
         polar: true,
-        type: 'area',
+        type: 'line',
         width: 350,
+        height: 350
       },
       legend: {
         align: 'center',
         verticalAlign: 'bottom',
         // y: 100,
         layout: 'horizontal'
+      },
+      title: {
+        text: 'Efficiency Target',
+        y: 20
       },
       xAxis: {
         categories: [
@@ -95,6 +100,7 @@ export class SpiderChartComponent implements OnInit {
           dataPoint.FR
         ],
         color: this.calculateColor(dataPoint.Cost, design.Cost, index),
+        opacity: 1 - (.15 * index),
         fillOpacity: key === '0' ? 100 : 0,
         name: this.getName(index)
       });

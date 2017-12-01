@@ -4,31 +4,28 @@ body,
 html {
     margin: 0px;
     padding: 0px;
-    width: 100%;
-}
-
-mwl-gauge {
-    width: 150px;
-    height: 150px;
-    display: block;
-    padding: 10px;
-}
-
-mwl-gauge>.gauge>.dial {
-    stroke: #eee;
-    stroke-width: 20;
-    fill: rgba(0, 0, 0, 0);
-}
-
-mwl-gauge>.gauge>.value {
-    stroke: rgb(47, 227, 255);
-    stroke-width: 20;
-    fill: rgba(0, 0, 0, 0);
-}
-
-mwl-gauge>.gauge>.value-text {
-    fill: rgb(47, 227, 255);
     font-family: sans-serif;
-    font-weight: bold;
-    font-size: 10em;
+    color: #a1a2a3;
+    text-transform: uppercase;
+}
+
+tspan {
+    padding-bottom: 5px;
+}
+
+.bottom-border {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.previous {
+    position: absolute;
+    top: 70px;
+    left: 15px;
+}
+
+.next {
+    position: absolute;
+    top: 70px;
+    right: 15px;
 }
