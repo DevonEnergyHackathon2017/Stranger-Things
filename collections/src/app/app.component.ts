@@ -66,9 +66,19 @@ export class AppComponent implements OnInit, OnDestroy {
 
   handleNewData(data: Dashboard) {
     this.dashboard = data;
-    const colors = ['#ff0000', '#00ff00', '#ffff00', '#ff00ff', '#0088ff', '#0000ff'];
-    const val = Math.trunc((this.dashboard.TotalScore / 100) * 6);
-    this.scoreColor = colors[val - 1];
+    const colors = [
+      '#FF0000',
+      '#FF3500',
+      '#FF6B00',
+      '#FFA100',
+      '#FFD600',
+      '#F1FF00',
+      '#BBFF00',
+      '#86FF00',
+      '#00FF1A'
+    ];
+    const val = Math.trunc((this.dashboard.TotalScore / 100) * 8);
+    this.scoreColor = colors[val];
     this.scoreTextColor = this.getTextColor(this.scoreColor);
     this.rateGuage.redraw(data.Bracket.Rate);
     this.pressureGuage.redraw(data.Bracket.Pressure);
