@@ -32,19 +32,14 @@ export class GaugeComponent implements OnInit {
 
   redraw(data) {
     this.data = data;
-    this.data.Current = this.randomIntFromInterval(0, 80);
-    const min = this.data.Previous.Value = this.randomIntFromInterval(0, 40);
-    const max = this.data.Next.Value = this.randomIntFromInterval(40, 80);
+    const min = this.data.Previous.Value;
+    const max = this.data.Next.Value;
 
     this.thresholdConfig = {};
     const half = (min + max / 2);
     this.thresholdConfig[min] = { color: 'green' };
     this.thresholdConfig[half] = { color: 'orange' };
     this.thresholdConfig[max] = { color: 'red' };
-  }
-
-  randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   saveInstance(instance) {

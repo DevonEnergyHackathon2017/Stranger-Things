@@ -34,7 +34,6 @@ export class SpiderChartComponent implements OnInit {
         lineWidth: 0
       },
       yAxis: {
-        // gridLineInterpolation: 'polygon',
         lineWidth: 0,
         min: 0,
         max: 6000,
@@ -49,10 +48,6 @@ export class SpiderChartComponent implements OnInit {
         }
       }
     };
-  }
-
-  randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   saveInstance(instance) {
@@ -88,7 +83,6 @@ export class SpiderChartComponent implements OnInit {
   }
 
   redraw(instant, design) {
-    // const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
     const series = [];
     Object.keys(instant).forEach(key => {
       const index = parseInt(key, null);
@@ -121,7 +115,6 @@ export class SpiderChartComponent implements OnInit {
       s['animation'] = false;
     });
     if (this.chart) {
-      // this.chart.title = dataSet.Well.Name;
       if (this.chart.series.length !== series.length) {
         series.forEach((serie, i) => {
           this.chart.addSeries(serie, false);

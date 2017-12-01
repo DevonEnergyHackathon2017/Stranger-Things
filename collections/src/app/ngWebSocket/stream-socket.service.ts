@@ -2,21 +2,16 @@ import { Injectable } from '@angular/core';
 // tslint:disable-next-line:import-blacklist
 import { Observable, Subject } from 'rxjs/Rx';
 import { NgSocketsService } from './ng-web-socket.service';
-
-export class TestObject {
-  Id: Number;
-  Description: String;
-  Uuid: String;
-}
+import { Dashboard } from '../models/dashboard.model';
 
 @Injectable()
 export class StreamSocket {
-  public messages: Subject<TestObject>;
+  public messages: Subject<Dashboard>;
 
   constructor(ngSocketService: NgSocketsService) {
-    this.messages = <Subject<TestObject>> ngSocketService
+    this.messages = <Subject<Dashboard>> ngSocketService
       .connect('ws://stranger-things-eventhubapi-test.azurewebsites.net/dataevent')
-      .map((response: MessageEvent): TestObject => {
+      .map((response: MessageEvent): Dashboard => {
         const data = JSON.parse(response.data);
         if ( typeof(data) === 'string' && data.includes('connect||')) {
           console.log(data.replace('connect||', ''));

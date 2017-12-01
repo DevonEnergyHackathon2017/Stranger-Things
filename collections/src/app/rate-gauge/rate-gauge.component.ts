@@ -32,11 +32,6 @@ export class RateGaugeComponent implements OnInit {
 
   redraw(data) {
     this.data = data;
-    this.data.Current = this.randomIntFromInterval(60, 80);
-  }
-
-  randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
   saveInstance(instance) {

@@ -4,7 +4,7 @@ import { Well } from './well.model';
 
 export class Dashboard {
   Well: Well;
-  TotalScore: Number;
+  TotalScore: number;
   Instant: Snapshot;
   Design: SnapshotInstance;
   Bracket: Brackets;
