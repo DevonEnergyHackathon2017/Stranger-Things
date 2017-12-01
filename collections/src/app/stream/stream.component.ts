@@ -39,7 +39,6 @@ export class StreamComponent implements OnInit, OnDestroy {
     private service: Adal4Service, private http: Adal4HTTPService) {
     this.streamService.messages.subscribe((data: any) => {
       if (data) {
-        console.log(data);
         if (!data.Msg) {
           this.handleNewData(data);
         }
@@ -48,7 +47,6 @@ export class StreamComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
     // Handle callback if this is a redirect from Azure
     this.service.handleWindowCallback();
     // Check if the user is authenticated. If not, call the login() method

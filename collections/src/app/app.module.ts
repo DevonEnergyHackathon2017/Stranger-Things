@@ -38,7 +38,8 @@ export function highchartsFactory() {
 const routes: Routes = [
   { path: 'stream', component: StreamComponent },
   { path: 'board', component: LeaderboardComponent },
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
