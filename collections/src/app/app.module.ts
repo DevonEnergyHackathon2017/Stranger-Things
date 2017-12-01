@@ -20,6 +20,8 @@ import { Adal4Service, Adal4HTTPService } from 'adal-angular4';
 import { StreamComponent } from './stream/stream.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { HomeComponent } from './home/home.component';
+import { LoginGuardGuard } from './login-guard.guard';
+import { LoginComponent } from './login/login.component';
 
 declare var require: any;
 
@@ -36,9 +38,10 @@ export function highchartsFactory() {
 }
 
 const routes: Routes = [
-  { path: 'stream', component: StreamComponent },
-  { path: 'board', component: LeaderboardComponent },
+  { path: 'stream', component: StreamComponent, canActivate: [LoginGuardGuard] },
+  { path: 'board', component: LeaderboardComponent, canActivate: [LoginGuardGuard] },
   { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: HomeComponent }
 ];
 
@@ -51,6 +54,7 @@ const routes: Routes = [
     StreamComponent,
     LeaderboardComponent,
     HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,8 @@ const routes: Routes = [
       provide: Adal4HTTPService,
       useFactory: Adal4HTTPService.factory,
       deps: [HttpClient, Adal4Service]
-    }
+    },
+    LoginGuardGuard
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule]
