@@ -22,10 +22,28 @@ tspan {
     position: absolute;
     top: 70px;
     left: 15px;
+    @media(min-width: 468px) {
+        left: 20%;
+    }
+    @media(min-width: 720px) {
+        left: 28%;
+    }
+    @media(min-width: 1024px) {
+        left: 38%;
+    }
 }
 
 .next {
     position: absolute;
     top: 70px;
     right: 15px;
+    @media(min-width: 468px) {
+        right: 20%;
+    }
+    @media(min-width: 720px) {
+        right: 28%;
+    }
+    @media(min-width: 1024px) {
+        right: 38%;
+    }
 }
